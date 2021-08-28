@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { observer } from "mobx-react";
-import { userStore } from "./store/user";
+import { IUsers, userStore } from "./store/user";
 import "./App.css";
 import Form from "./components/Form";
 
 function App() {
   useEffect(() => {
     (async () => {
-      const users = await userStore.fetchUsers();
+      const users: IUsers = await userStore.fetchUsers();
       userStore.setUsers(users);
     })();
   }, []);
